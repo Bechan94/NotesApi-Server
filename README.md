@@ -27,3 +27,18 @@ docker compose up --build
 
 Сервер будет доступен на http://localhost:8080
 PostgreSQL на порту 5432.
+
+Получить все заметки
+curl http://localhost:8080/notes
+Создать новую заметку
+curl -X POST http://localhost:8080/notes \
+-H "Content-Type: application/json" \
+-d '{"title":"Первая заметка","content":"Привет, мир!"}'
+Получить заметку по id
+curl http://localhost:8080/notes/1
+Обновить заметку
+curl -X PUT http://localhost:8080/notes/1 \
+-H "Content-Type: application/json" \
+-d '{"title":"Обновлено","content":"Содержимое изменено"}'
+Удалить заметку
+curl -X DELETE http://localhost:8080/notes/1
